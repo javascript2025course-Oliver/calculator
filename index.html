@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculator</title>
+        <link rel="stylesheet" href="css/styles.css">
+        <style>
+            .container {
+                display: grid;
+                grid-template-columns: 100px 100px 100px 100px;
+                grid-template-rows: 100px 100px 100px 100px 100px 100px;
+                gap: 5px 5px;
+                grid-auto-flow: row;
+                justify-content: center;
+                align-content: center;
+                justify-items: center;
+                align-items: center;
+                justify-self: center;
+                align-self: center;
+                grid-template-areas:
+                    "display display display display"
+                    "ac divide multiply minus"
+                    "seven eight nine plus"
+                    "four five six plus"
+                    "one two three equal"
+                    "zero zero point equal";
+                border: 1px solid black;
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                width: 425px;
+                height: 635px;
+            }
+
+            .display {
+                grid-area: display;
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                border: 1px solid black;
+                width: 415px;
+                height: 100px;
+            }
+
+            .display input{
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: right;
+                border-radius: 5px;
+                width: 411px;
+                height: 96px;
+            }
+
+            .ac {
+                grid-area: ac;
+                background-color: #FFA500;
+                width: 100px;
+                height: 100px;
+                font-size: 3rem;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                border: 1px solid black;
+                border-radius: 5px;
+                align-self: center;
+                justify-self: center;
+                text-align: center;
+                vertical-align: center;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                &:hover {
+                    background-color: #bda000;
+                }
+                &:active {
+                    background-color: #a18900;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .divide {
+                grid-area: divide;
+                width: 100px;
+                height: 100px;
+            }
+
+            .multiply {
+                grid-area: multiply;
+                width: 100px;
+                height: 100px;
+            }
+
+            .minus {
+                grid-area: minus;
+                width: 100px;
+                height: 100px;
+            }
+
+            .plus {
+                grid-area: plus;
+                width: 100px;
+                height: 205px;
+            }
+
+            .equal {
+                grid-area: equal;
+                width: 100px;
+                height: 205px;
+            }
+
+            .point {
+                grid-area: point;
+                width: 100px;
+                height: 100px;
+            }
+
+            .zero {
+                grid-area: zero;
+                width: 205px;
+                height: 100px;
+            }
+
+            .one {
+                grid-area: one;
+                width: 100px;
+                height: 100px;
+            }
+
+            .two {
+                grid-area: two;
+                width: 100px;
+                height: 100px;
+            }
+
+            .three {
+                grid-area: three;
+                width: 100px;
+                height: 100px;
+            }
+
+            .four {
+                grid-area: four;
+                width: 100px;
+                height: 100px;
+            }
+
+            .five {
+                grid-area: five;
+                width: 100px;
+                height: 100px;
+            }
+
+            .six {
+                grid-area: six;
+                width: 100px;
+                height: 100px;
+            }
+
+            .seven {
+                grid-area: seven;
+                width: 100px;
+                height: 100px;
+            }
+
+            .eight {
+                grid-area: eight;
+                width: 100px;
+                height: 100px;
+            }
+
+            .nine {
+                grid-area: nine;
+                width: 100px;
+                height: 100px;
+            }
+
+            .container .divide, .container .multiply, .container .minus, .container .plus, .container .equal, .container .point, .container .zero, .container .one, .container .two, .container .three, .container .four, .container .five, .container .six, .container .seven, .container .eight, .container .nine {
+                font-size: 3rem;
+                font-weight: bold;
+                font-family: Arial, Helvetica, sans-serif;
+                border: 1px solid black;
+                border-radius: 5px;
+                align-self: center;
+                justify-self: center;
+                text-align: center;
+                vertical-align: center;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                justify-items: center;
+                padding: 0;
+                margin: 0;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                &:hover {
+                    background-color: #e0e0e0;
+                }
+                &:active {
+                    background-color: #d0d0d0;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            #display{
+                font-size: 4rem;
+                font-family: Arial, Helvetica, sans-serif;
+                padding: 0;
+                margin: 0;
+                cursor: text;
+                transition: background-color 0.3s ease;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            .navbar {
+                font-family: Arial, Helvetica, sans-serif;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: var(--color-white);
+                margin-bottom: 2rem;
+            }
+
+            .navbar a {
+                color: var(--color-text);
+            }
+
+            .navbar a:hover {
+                color: var(--color-primary);
+            }
+
+            .navbar a.active {
+                color: var(--color-primary);
+            }
+                
+            .navbar a.active:hover {
+                color: var(--color-primary-hover);
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar flex-row" style="justify-content: right;">
+                <h1 class="logo" style="justify-content: left; position: absolute; left: 0.5%; ">Oliver Kent Santos</h1>
+                <a href="index.html" class="rounded shadow">Home</a>
+                <a href="about.html" class="rounded shadow">About</a>
+                <a href="projects.html" class="active rounded shadow">Projects</a>
+                <a href="contact.html" class="rounded shadow">Contact</a>
+            </nav>
+        </header>
+
+        <div class="container">
+            <div id="display" class="display"><input id="display" disabled></div>
+            <div id="ac" class="ac">AC</div>
+            <div id="divide" class="divide" onclick="divideButton();">&divide;</div>
+            <div id="multiply" class="multiply" onclick="multiplyButton();">&times;</div>
+            <div id="minus" class="minus" onclick="minusButton();">&minus;</div>
+            <div id="plus" class="plus" onclick="plusButton();">&plus;</div>
+            <div id="equal" class="equal" onclick="equalButton();">&equals;</div>
+            <div id="point" class="point" onclick="pointButton();">&period;</div>
+            <div id="zero" class="zero" onclick="zeroButton();">0</div>
+            <div id="one" class="one" onclick="oneButton();">1</div>
+            <div id="two" class="two" onclick="twoButton();">2</div>
+            <div id="three" class="three" onclick="threeButton();">3</div>
+            <div id="four" class="four" onclick="fourButton();">4</div>
+            <div id="five" class="five" onclick="fiveButton();">5</div>
+            <div id="six" class="six" onclick="sixButton();">6</div>
+            <div id="seven" class="seven" onclick="sevenButton();">7</div>
+            <div id="eight" class="eight" onclick="eightButton();">8</div>
+            <div id="nine" class="nine" onclick="nineButton();">9</div>
+        </div>
+
+        <script>
+            const displayInput = document.getElementById("display");
+            const acButton = document.getElementById("ac");
+            const divideButton = document.getElementById("divide");
+            const multiplyButton = document.getElementById("multiply");
+            const minusButton = document.getElementById("minus");
+            const plusButton = document.getElementById("plus");
+            const equalButton = document.getElementById("equal");
+            const pointButton = document.getElementById("point");
+            const zeroButton = document.getElementById("zero");
+            const oneButton = document.getElementById("one");
+            const twoButton = document.getElementById("two");
+            const threeButton = document.getElementById("three");
+            const fourButton = document.getElementById("four");
+            const fiveButton = document.getElementById("five");
+            const sixButton = document.getElementById("six");
+            const sevenButton = document.getElementById("seven");
+            const eightButton = document.getElementById("eight");
+            const nineButton = document.getElementById("nine");
+
+            let displayValue = "";
+
+            function clear() {
+                displayValue = "";
+                displayInput.value = displayValue;
+            }
+
+            acButton.addEventListener("click", clear);
+
+            function divideButton() {
+                displayValue += "&divide;";
+                displayInput.value = displayValue;
+            }
+        </script>
+    </body>
+</html>
